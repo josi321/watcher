@@ -1,0 +1,24 @@
+<nav class="navbar navbar-light bg-faded">
+  <button class="navbar-toggle hidden-lg-up"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarResponsive"
+          aria-controls="navbarResponsive"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+  </button>
+  <div class="collapse navbar-toggleable-md" id="navbarResponsive">
+    <a class="navbar-brand" [routerLink]="['/']">{{appName}}</a> <!-- Links to home page -->
+    <ul class="nav navbar-nav">
+      <li class="nav-item" *ngFor="let navItem of navItems"> <!-- Nav items that we're going to iterate in our component-->
+        <a class="nav-link"
+          [ngClass]="{active: navItem.active}"
+          [routerLink]="navItem.routerLink"> {{navItem.label}}
+          <span class="sr-only" *ngIf="navItem.active">(current)</span>
+        </a>
+      </li>
+    </ul>
+    <!-- search box selector, it'll be on the right side of the navbar -->
+    <tv-search-bar></tv-search-bar> <!-- Add search bar elements in the search folder under ui folder-->
+  </div>
+</nav>
