@@ -1,13 +1,15 @@
 <div class="container">
   <div class="row"><br>
     <h1 class="col-md-6">Find shows</h1>
-        <form>
+        <!-- searchshows is our mehtod and we are passing search forms, which defined in [formgroup] -->
+        <form (ngSubmit)="searchShows(searchForm)" [formGroup]="searchForm">
     <div class="input-group">
-      <input type="search" class="form-control">
+      <!-- add a name for the form group -->
+      <input type="search" class="form-control" formControlName="query">
       <span class="input-group-btn">
         <button
           class="btn btn-primary"
-          type="submit">
+          type="submit"   [disabled]="!searchForm.valid">
           Search
          </button>
       </span>
@@ -28,8 +30,8 @@
         No TV shows found with this name
   </div>
 
-  <!-- Show table -->
-  <table class="table table-bordered table-hover table-fixed-header">
+  <!-- Show table. the ngIf says show the table only if there are shows-->
+  <table class="table table-bordered table-hover table-fixed-header" *ngIf="shows">
     <thead>
       <tr>
         <th class="text-center">Name</th>
@@ -40,22 +42,26 @@
       </tr>
     </thead>
       <tbody>
-      <tr>
+        <!-- ngFor here so that it gets display within the table -->
+      <tr *ngFor="let s of shows">
         <td>
           <h5>
-
+            <!--  the name is inside the show in the json file-->
+              {{s.show.name}}
             </h5>
           </td>
         <td>
-          <img>
+          <img [src]="s.show.image?.medium">
         </td>
-        <td> </td>
+        <td>{{s.show.network?.name}} </td>
         <!-- get back HTML, so need to bind to innerHtml -->
-        <td></td>
+        <td [innerHtml]="s.show.summary"></td>
         <td>
           <h5>
-          <span>
-
+            <!--  if the show is running, then display a green background. if the show is not running then show a red background-->
+          <span [ngClass]="{'bg-success text-white':s.show.status === 'Running', 'bg-danger':s.show.status !== 'Running'}">
+            <!-- print out the status of the show -->
+            {{s.show.status}}
            </span>
            </h5>
         </td>
