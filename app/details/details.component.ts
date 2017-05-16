@@ -10,17 +10,19 @@ import { Episodes } from './episode';
 })
 
 export class DetailsComponent implements OnInit {
+  // defining the properties
   details: Details;
   episodes: Episodes[];
   isLoading: boolean = false;
   errorMessage: string;
 
   constructor(private route: ActivatedRoute,
-                        private _detailsService: DetailsService) {
+              private _detailsService: DetailsService) {
     console.log(this.route.snapshot.params['id']);
     console.log(this.route.snapshot.params['show']);
   }
 
+ // defining  our ng init. let the show or id equal to the snapshot route
   ngOnInit() {
     let id = +this.route.snapshot.params['id'];
     let show = this.route.snapshot.params['show'];
@@ -28,6 +30,7 @@ export class DetailsComponent implements OnInit {
   }
 
   getShowDetails(id: number, show: string) {
+    // this will display the spinner when its loading
     this.isLoading = true;
     this._detailsService.getShowDetails(id, show)
       .subscribe(
