@@ -10,6 +10,7 @@ import {NavItem} from './navItems';
 export class NavbarComponent {
   appName: string= "TV Watcher";
   navItems: NavItem[] = [
-    {routerLink: '/', label:'Home', active: false}
+    {routerLink: '/', label:'Home', active: false},
+    {routerLink: '/search', label:'Find Shows', active: false}
   ];
 }

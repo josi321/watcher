@@ -46,8 +46,10 @@
       <tr *ngFor="let s of shows">
         <td>
           <h5>
+            <a [routerLink]="['details', s.show.name, s.show.id]">
             <!--  the name is inside the show in the json file-->
               {{s.show.name}}
+            </a>
             </h5>
           </td>
         <td>
