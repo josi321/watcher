@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app.routing';
 // import { NavbarComponent } from './nav/nav.component'; bc we made a new module called UI module that holds all of it
 import { UIModule } from './ui/ui.module';
 import { CarouselModule } from './carousel/carousel.module';
+import { FeaturedModule} from './featured/featured.module';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -22,7 +23,8 @@ import './shared/rxjs-extensions';
                    FormsModule,
                    AppRoutingModule,
                    UIModule,
-                   CarouselModule
+                   CarouselModule,
+                   FeaturedModule
                    ],
   declarations: [ AppComponent,
                   HomeComponent
