@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="media">
+        <div class="pull-left">
+          <img class="media-object img-rounded">
+          <div class="text-center">
+          </div>
+        </div>
+        <div class="media-body">
+          <h1 class="media-heading">
+
+            <span class="pull-right text-danger"><i class="fa fa-star" aria-hidden="true"></i>
+
+            </span>
+          </h1><br>
+          <h4>Status: <span>
+
+          </span></h4>
+          <h4>Tune in:
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+            <span class="text-primary"> </span>on
+            <span class="text-success"> </span>
+          </h4>
+          <p></p><br>
+          <h5>
+            Premiered on: <span class="text-warning"> </span>
+          </h5>
+          <br>
+          <p>See more of <em> </em> on <a target="_blank">TVMaze.com</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loader -->
+  <div class="loader" *ngIf="isLoading"></div>
+
+  <!-- Error Message -->
+  <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+  <!-- No shows found -->
+  <div class="alert alert-danger"
+          [hidden]="!errorMessage && (!shows || shows.length > 0)">
+        No TV shows found with this name
+  </div>
+
+  <br>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <i class="fa fa-film" aria-hidden="true"></i> Episodes
+    </div>
+    <div class="panel-body">
+      <div class="episode">
+        <h4>
+        <small>Season , Episode </small>
+        </h4>
+        <p>
+          <i class="fa fa-clock-o" aria-hidden="true"></i>
+
+        </p>
+        <p></p>
+      </div>
+    </div>
+  </div>
+</div>
